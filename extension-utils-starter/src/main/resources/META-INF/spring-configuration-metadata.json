@@ -1,0 +1,60 @@
+{
+  "groups": [
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy",
+      "type": "com.easy.bean.EasyProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.dictBeanPackage",
+      "description": "字典实体所在包,多个包以逗号隔开"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.fileUrlPrefix",
+      "description": "上传文件的前缀url"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.fileFieldPrefix",
+      "defaultValue": "full",
+      "description": "上传文件完整path字段前缀"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.fileFieldSuffix",
+      "description": "上传文件完整path字段后缀"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.enumFieldPrefix",
+      "description": "枚举文本字段前缀"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.enumFieldSuffix",
+      "description": "枚举文本字段后缀",
+      "defaultValue": "Label"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.dictFieldPrefix",
+      "description": "字典文本字段前缀"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.dictFieldSuffix",
+      "description": "字典文本字段后缀",
+      "defaultValue": "Label"
+    },
+    {
+      "sourceType": "com.easy.bean.EasyProperties",
+      "name": "easy.dictSwaggerSupport",
+      "description": "swagger文档是否启用支持字典类型展示处理",
+      "defaultValue": "false"
+    }
+  ]
+}

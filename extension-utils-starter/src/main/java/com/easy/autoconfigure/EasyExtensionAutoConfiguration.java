@@ -24,6 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -36,6 +37,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.core.type.filter.AssignableTypeFilter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import springfox.documentation.swagger2.web.Swagger2Controller;
 
 import java.util.Set;
 import java.util.TimeZone;
@@ -90,12 +92,15 @@ public class EasyExtensionAutoConfiguration {
 
     }
 
-    @Bean
-    @ConditionalOnMissingBean(ExtensionSwaggerPlugin.class)
-    public ExtensionSwaggerPlugin baseEnumPropertyPlugin() {
-        ExtensionSwaggerPlugin baseEnumPlugin = new ExtensionSwaggerPlugin();
-        return baseEnumPlugin;
-
+    @ConditionalOnClass(Swagger2Controller.class)
+    @Configuration
+    public class SwaggerExtensionConfig {
+        @Bean
+        @ConditionalOnMissingBean(ExtensionSwaggerPlugin.class)
+        public ExtensionSwaggerPlugin baseEnumPropertyPlugin() {
+            ExtensionSwaggerPlugin baseEnumPlugin = new ExtensionSwaggerPlugin();
+            return baseEnumPlugin;
+        }
     }
 
     @Value("${mybatis-plus.type-enums-package:}")

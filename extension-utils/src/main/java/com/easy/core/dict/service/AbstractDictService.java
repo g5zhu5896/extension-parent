@@ -42,10 +42,10 @@ public abstract class AbstractDictService implements IDictService {
             IDictBean cacheDictBean = cache.getFromCache(cacheKey);
             if (cacheDictBean == null) {
                 if (StringUtils.isNotBlank(dictBean.getDictKey())) {
-                    List<IDictBean> dictBeanList = queryBeanListByDictKey(dictBean.getDictKey());
+                    List<IDictBean> dictBeanList = queryBeanListByDictKey(dictBean.getDictKey(), type);
                     if (CollectionUtils.isNotEmpty(dictBeanList)) {
                         for (IDictBean item : dictBeanList) {
-                            if (dictBean.getValue().equals(item.getValue())) {
+                            if (dictBean.getValue().equals(item.getValue().toString())) {
                                 //如果是当前查询的dictKey则把查到的数据拷贝到dictBean
                                 dictBeanCopy(item, dictBean);
                             } else {

@@ -27,7 +27,7 @@ public interface IDictService {
      * @param dictKey 字典key
      * @return 返回字典类型对应的所有DictBean
      */
-    List<IDictBean> queryBeanListByDictKey(String dictKey);
+    List<IDictBean> queryBeanListByDictKey(String dictKey, Class<? extends IDictBean> clazz);
 
     /**
      * 获取实例

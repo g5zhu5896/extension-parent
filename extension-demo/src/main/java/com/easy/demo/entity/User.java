@@ -1,6 +1,7 @@
 package com.easy.demo.entity;
 
 import com.easy.core.serializer.FilePathSerializer;
+import com.easy.demo.dict.UserGenderDict;
 import com.easy.demo.dict.UserSourceDict;
 import com.easy.demo.enums.UserIsEnableEnum;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -24,6 +25,8 @@ public class User {
     private UserIsEnableEnum isEnable;
     @ApiModelProperty("来源")
     private UserSourceDict source;
+    @ApiModelProperty("来源")
+    private UserGenderDict gender;
     @JsonSerialize(using = FilePathSerializer.class)
     @ApiModelProperty("头像")
     private String headUrl;

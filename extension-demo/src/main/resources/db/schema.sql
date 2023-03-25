@@ -7,6 +7,7 @@ CREATE TABLE user
     age       INT(11) NULL DEFAULT NULL COMMENT '年龄',
     is_enable INT(11) NULL DEFAULT NULL COMMENT '是否启用:1-启用 2-未启用',
     source    varchar(16) NULL DEFAULT NULL COMMENT '字典表的 user_source',
+    gender    INT(11) NULL DEFAULT NULL COMMENT '性别:1-男 2-女',
     head_url  VARCHAR(50) NULL DEFAULT NULL COMMENT '头像',
     PRIMARY KEY (id)
 );

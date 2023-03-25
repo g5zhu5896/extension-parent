@@ -24,7 +24,7 @@ public class DictBeanServiceImpl extends AbstractDictService {
         Class<?> valueType = ReflectUtils.getSuperClassGenericType(clazz, 0);
         List<IDictBean> dictBeanList = Lists.newArrayListWithCapacity(dictList.size());
         dictList.forEach(dict -> {
-            DictBean dictBean = new DictBean();
+            IDictBean dictBean = ReflectUtils.newInstance(clazz);
             if (valueType.isAssignableFrom(Integer.class)) {
                 dictBean.setValue(Integer.parseInt(dict.getValue()));
             } else {

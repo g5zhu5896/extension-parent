@@ -47,14 +47,10 @@ public abstract class AbstractDictService implements IDictService {
                         for (IDictBean item : dictBeanList) {
                             if (dictBean.getValue().equals(item.getValue().toString())) {
                                 //如果是当前查询的dictKey则把查到的数据拷贝到dictBean
-                                dictBeanCopy(item, dictBean);
+                                 dictBean = item;
                             } else {
                                 //如果不是当前查询的key则缓存对应的DictBean
-                                IDictBean currentDictBean = null;
-                                currentDictBean = (DictBean) type.newInstance();
-                                dictBeanCopy(item, currentDictBean);
-
-                                cache.cacheDictBean(currentDictBean, getCacheKey(currentDictBean));
+                                cache.cacheDictBean(item, getCacheKey(item));
                             }
                         }
                     }
@@ -72,17 +68,6 @@ public abstract class AbstractDictService implements IDictService {
             throw new IllegalArgumentException("字典" + dictBean.getDictKey() + "找不到对应的value:" + value);
         }
         return dictBean;
-    }
-
-    /**
-     * dictBean 实体拷贝 src 属性复制到dest
-     *
-     * @param src
-     * @param dest
-     */
-    private void dictBeanCopy(IDictBean src, IDictBean dest) {
-        dest.setValue(src.getValue());
-        dest.setLabel(src.getLabel());
     }
 
     /**

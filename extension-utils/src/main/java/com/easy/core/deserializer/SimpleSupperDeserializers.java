@@ -124,7 +124,7 @@ public class SimpleSupperDeserializers extends SimpleDeserializers {
      * 递归寻找父类的 JsonDeserializer
      *
      * @param childType
-     * @return
+     * @return 反序列化器
      */
     private final JsonDeserializer<?> _findSupper(Class<?> childType) {
         JsonDeserializer<?> jsonDeserializer = _findInterface(childType);
@@ -148,7 +148,7 @@ public class SimpleSupperDeserializers extends SimpleDeserializers {
      * 递归寻找父接口的 JsonDeserializer
      *
      * @param type
-     * @return
+     * @return 反序列化器
      */
     private final JsonDeserializer<?> _findInterface(Class<?> type) {
 

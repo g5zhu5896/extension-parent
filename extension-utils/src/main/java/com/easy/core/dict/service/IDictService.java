@@ -17,7 +17,7 @@ public interface IDictService {
      *
      * @param value
      * @param type  字段类型,请传入当前字段的类型
-     * @return
+     * @return 字典实体
      */
     IDictBean getDictBean(Object value, Class<? extends IDictBean> type);
 
@@ -32,7 +32,7 @@ public interface IDictService {
     /**
      * 获取实例
      *
-     * @return
+     * @return IDictService
      */
     public static IDictService getInstance() {
         //后面需考虑工厂类

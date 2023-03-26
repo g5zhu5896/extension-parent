@@ -367,7 +367,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
 
     /**
-     * 下划线转驼峰式(首字母大写) 例如：HELLO_WORLD->HelloWorld
+     * 下划线转驼峰式(首字母大写) 例如：HELLO_WORLD 转 HelloWorld
      *
      * @param name 转换前的下划线大写方式命名的字符串
      * @return 转换后的驼峰式命名的字符串
@@ -379,7 +379,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
 
     /**
-     * 驼峰式命名法(首字母小写) 例如：user_name->userName
+     * 驼峰式命名法(首字母小写) 例如：user_name 转 userName
      */
     public static String toCamelCaseLower(String s) {
         if (s == null) {
@@ -409,7 +409,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * 字符串拼接
      *
      * @param strs
-     * @return
+     * @return 拼接后的字符串
      */
     public static String splicing(String... strs) {
         StringBuilder builder = new StringBuilder();

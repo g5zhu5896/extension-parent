@@ -150,7 +150,7 @@ public class ExtensionSwaggerPlugin implements ExpandedParameterBuilderPlugin, M
      * 获取BaseEnum 枚举的可能值
      *
      * @param type
-     * @return
+     * @return AllowableListValues
      */
     private AllowableListValues allowableValues(Class<?> type) {
         BaseEnum[] values = (BaseEnum[]) type.getEnumConstants();

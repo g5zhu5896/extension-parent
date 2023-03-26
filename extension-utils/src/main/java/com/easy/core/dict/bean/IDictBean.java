@@ -9,7 +9,7 @@ public interface IDictBean<T> {
     /**
      * 获取字典Value
      *
-     * @return
+     * @return 字典value
      */
     T getValue();
 
@@ -23,7 +23,7 @@ public interface IDictBean<T> {
     /**
      * 获取字典文本内容
      *
-     * @return
+     * @return 字典文本
      */
     String getLabel();
 
@@ -39,7 +39,7 @@ public interface IDictBean<T> {
      * 获取字典类型,如果字典key唯一可以为空,
      * 否则得返回字典类型以便可以根据字典类型和字典key识别唯一
      *
-     * @return
+     * @return 字典key
      */
     String getDictKey();
 
@@ -47,8 +47,7 @@ public interface IDictBean<T> {
      * 获取字典类型,如果字典key唯一可以为空,
      * 否则得返回字典类型以便可以根据字典类型和字典key识别唯一
      *
-     * @param dictKey
-     * @return
+     * @param dictKey 字典key
      */
     void setDictKey(String dictKey);
 

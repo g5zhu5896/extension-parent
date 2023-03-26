@@ -31,7 +31,7 @@ public class SpringUtils implements ApplicationContextAware {
 
     /**
      * @param clazz
-     * @return
+     * @return bean
      */
     public static <T> T getBean(Class<T> clazz) {
         return getApplicationContext().getBean(clazz);
@@ -40,7 +40,7 @@ public class SpringUtils implements ApplicationContextAware {
     /**
      * @param name
      * @param clazz
-     * @return
+     * @return bean
      */
     public static <T> T getBean(String name, Class<T> clazz) {
         return getApplicationContext().getBean(name, clazz);

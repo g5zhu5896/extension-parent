@@ -20,7 +20,7 @@ public interface DictCacheStrategy {
      * 从缓存中获取dictBean
      *
      * @param cacheKey
-     * @return
+     * @return IDictBean
      */
     IDictBean getFromCache(String cacheKey);
 }

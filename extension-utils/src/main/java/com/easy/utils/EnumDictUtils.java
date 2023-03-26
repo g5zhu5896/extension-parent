@@ -17,7 +17,7 @@ public class EnumDictUtils {
      * @param value 枚举值或字典值
      * @param clazz 可以是BaseEnum的子类 也可以是 IDictBean的子类
      * @param <T>
-     * @return
+     * @return 字典或美剧
      */
     public static <T> T convert(Object value, Class<T> clazz) {
         if (BaseEnum.class.isAssignableFrom(clazz)) {

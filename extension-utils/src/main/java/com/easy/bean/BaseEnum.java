@@ -16,22 +16,22 @@ public interface BaseEnum<T extends Serializable> extends IEnum<T> {
     /**
      * 获取枚举文本
      *
-     * @return
+     * @return 举文本
      */
     String getLabel();
 
     /**
      * 获取枚举名称
      *
-     * @return
+     * @return 枚举名称
      */
     String name();
 
     /**
      * @param type  枚举类型
      * @param value 枚举值
-     * @param <M>
-     * @return
+     * @param <M> BaseEnum的子类
+     * @return 枚举值
      */
     public static <M extends BaseEnum> M getEnum(Class<M> type, Object value) {
         M[] objs = type.getEnumConstants();

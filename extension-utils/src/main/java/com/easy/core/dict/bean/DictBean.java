@@ -10,18 +10,19 @@ import lombok.Setter;
  * @date 2021/6/4 17:53
  */
 @Getter
-@Setter
 @EqualsAndHashCode(of = "value")
 public class DictBean<T> implements IDictBean<T> {
 
     /**
      * 字典值
      */
+    @Setter
     private T value;
 
     /**
      * 字典文本内容
      */
+    @Setter
     private String label;
 
     /**
@@ -39,4 +40,15 @@ public class DictBean<T> implements IDictBean<T> {
         return dictBean;
     }
 
+    /**
+     * 子类覆盖此方法用new 返回对象可以在一定层度提升效率
+     * @return
+     */
+    public DictBean clone() {
+        try {
+            return (DictBean) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new IllegalArgumentException("克隆异常");
+        }
+    }
 }

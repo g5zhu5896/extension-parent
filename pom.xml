@@ -65,13 +65,13 @@
                     <configuration>
                         <!--                    <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>-->
                         <aggregate>true</aggregate>
-<!--                        <tags>-->
-<!--                            <tag>-->
-<!--                                <name>date</name>-->
-<!--                                <placement>a</placement>-->
-<!--                                <head>日期</head>-->
-<!--                            </tag>-->
-<!--                        </tags>-->
+                        <tags>
+                            <tag>
+                                <name>date</name>
+                                <placement>a</placement>
+                                <head>日期</head>
+                            </tag>
+                        </tags>
 <!--                        <additionalJOptions>-->
 <!--                            <additionalJOption>-Xdoclint:none</additionalJOption>-->
 <!--                            <additionalparam>-Xdoclint:none</additionalparam>-->

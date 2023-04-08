@@ -3,6 +3,7 @@ package com.easy.core.dict.service;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
+import com.easy.core.dict.bean.DictBean;
 import com.easy.core.dict.bean.IDictBean;
 import com.easy.core.dict.bean.TableDictBean;
 import com.easy.core.dict.strategy.DictCacheStrategy;
@@ -37,38 +38,34 @@ public abstract class AbstractDictService implements IDictService {
         if (ObjectUtils.isEmpty(value)) {
             return null;
         }
-        IDictBean baseDictBean = null;
+        IDictBean dictBean = null;
         try {
-            baseDictBean = getTempDictBean(type);
+            dictBean = getTempDictBean(type);
             //缓存用的key
-            String cacheKey = getCacheKey(baseDictBean.getDictKey(), value);
+            String cacheKey = getCacheKey(dictBean.getDictKey(), value);
             IDictBean cacheDictBean = cache.getFromCache(cacheKey);
             if (cacheDictBean == null) {
-                List<IDictBean> dictBeanList = queryBeanList(baseDictBean);
+                List<IDictBean> dictBeanList = queryBeanList(dictBean);
                 if (CollectionUtils.isNotEmpty(dictBeanList)) {
                     for (IDictBean item : dictBeanList) {
                         if (value.equals(item.getValue().toString())) {
-                            //如果是当前查询的dictKey则把查到的数据拷贝到dictBean
-                            baseDictBean = item;
-                        } else {
-                            //如果不是当前查询的key则缓存对应的DictBean
-                            cache.cacheDictBean(item, getCacheKey(item.getDictKey(), item.getValue()));
+                            //设置当前查询的字典
+                            dictBean = item;
                         }
+                        //缓存当前dictKey对应的所有字典
+                        cache.cacheDictBean(item, getCacheKey(item.getDictKey(), item.getValue()));
                     }
                 }
-
-                //缓存当前dictKey对应的bean并返回实际对象
-                cache.cacheDictBean(baseDictBean, cacheKey);
             } else {
-                baseDictBean = cacheDictBean;
+                dictBean = cacheDictBean;
             }
         } catch (Exception e) {
             throw new IllegalArgumentException("字典转换异常", e);
         }
-        if (StringUtils.isBlank(baseDictBean.getLabel())) {
-            throw new IllegalArgumentException("字典" + baseDictBean.getDictKey() + "找不到对应的value:" + value);
+        if (StringUtils.isBlank(dictBean.getLabel())) {
+            throw new IllegalArgumentException("字典" + dictBean.getDictKey() + "找不到对应的value:" + value);
         }
-        return baseDictBean;
+        return dictBean;
     }
 
     private List<IDictBean> queryBeanList(IDictBean dictBean) {
@@ -76,7 +73,7 @@ public abstract class AbstractDictService implements IDictService {
             TableDictBean tableDict = (TableDictBean) dictBean;
             return queryBeanListBySql(tableDict);
         } else {
-            return queryBeanListByDictKey(dictBean);
+            return queryBeanListByDictKey((DictBean) dictBean);
         }
     }
 

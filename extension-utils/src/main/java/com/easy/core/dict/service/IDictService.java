@@ -3,6 +3,7 @@ package com.easy.core.dict.service;
 
 import com.easy.core.SpringUtils;
 import com.easy.core.dict.bean.IDictBean;
+import com.easy.core.dict.bean.TableDictBean;
 
 import java.util.List;
 
@@ -27,7 +28,17 @@ public interface IDictService {
      * @param dictKey 字典key
      * @return 返回字典类型对应的所有DictBean
      */
-    List<IDictBean> queryBeanListByDictKey(String dictKey, Class<? extends IDictBean> clazz);
+    List<IDictBean> queryBeanListByDictKey(IDictBean baseDictBean);
+
+    /**
+     * 根据sql查询对应的DictBean集合
+     *
+     * @param baseDictBean 字典实例
+     * @return 返回sql对应的所有DictBean
+     */
+    default List<IDictBean> queryBeanListBySql(TableDictBean baseDictBean) {
+        throw new UnsupportedOperationException("不支持的操作");
+    }
 
     /**
      * 获取实例

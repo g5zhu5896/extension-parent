@@ -16,7 +16,7 @@
     <description>extension-parent</description>
     <properties>
         <java.version>1.8</java.version>
-        <extension.version>1.0.0</extension.version>
+        <extension.version>1.1.0</extension.version>
     </properties>
     <modules>
         <module>extension-utils</module>

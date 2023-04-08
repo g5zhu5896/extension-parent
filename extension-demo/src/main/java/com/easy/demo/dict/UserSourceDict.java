@@ -11,7 +11,7 @@ public class UserSourceDict extends DictBean<String> {
     public static final UserSourceDict JD = create("tx");
 
     public UserSourceDict() {
-        setDictKey("USER_SOURCE");
+        super("USER_SOURCE");
     }
 
     private static UserSourceDict create(String value) {

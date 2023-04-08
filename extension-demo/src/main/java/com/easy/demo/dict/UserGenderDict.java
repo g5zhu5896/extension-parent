@@ -1,12 +1,12 @@
 package com.easy.demo.dict;
 
 
-import com.easy.core.dict.bean.DictBean;
+import com.easy.core.dict.bean.TableDictBean;
 
-public class UserGenderDict extends DictBean<Integer> {
+public class UserGenderDict extends TableDictBean<Integer> {
 
     public UserGenderDict() {
-        setDictKey("GENDER");
+        super("GENDER", "select label,value from dict where dict_key = 'GENDER'");
     }
 
     private static UserGenderDict create(Integer value) {

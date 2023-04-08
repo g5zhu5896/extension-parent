@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "value")
-public class DictBean<T> implements IDictBean<T> {
+public class TableDictBean<T> implements IDictBean<T> {
 
     /**
      * 字典值
@@ -29,11 +29,14 @@ public class DictBean<T> implements IDictBean<T> {
      */
     private String dictKey;
 
-    public DictBean(String dictKey) {
+    private String sql;
+
+    public TableDictBean(String dictKey, String sql) {
         this.dictKey = dictKey;
+        this.sql = sql;
     }
 
-    public final static <U extends DictBean<T>, T> U create(T value, Class<U> type) {
+    public final static <U extends TableDictBean<T>, T> U create(T value, Class<U> type) {
         U dictBean = ReflectUtils.newInstance(type);
         dictBean.setValue(value);
         return dictBean;

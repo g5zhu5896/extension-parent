@@ -4,7 +4,7 @@ package com.easy.core.dict.bean;
  * @author zzz
  * @date 2021/6/4 17:53
  */
-public interface IDictBean<T> {
+public interface IDictBean<T> extends Cloneable {
 
     /**
      * 获取字典Value
@@ -42,13 +42,5 @@ public interface IDictBean<T> {
      * @return 字典key
      */
     String getDictKey();
-
-    /**
-     * 获取字典类型,如果字典key唯一可以为空,
-     * 否则得返回字典类型以便可以根据字典类型和字典key识别唯一
-     *
-     * @param dictKey 字典key
-     */
-    void setDictKey(String dictKey);
 
 }

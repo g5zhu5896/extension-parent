@@ -2,6 +2,7 @@ package com.easy.core.dict.service;
 
 
 import com.easy.core.SpringUtils;
+import com.easy.core.dict.bean.DictBean;
 import com.easy.core.dict.bean.IDictBean;
 import com.easy.core.dict.bean.TableDictBean;
 
@@ -28,7 +29,7 @@ public interface IDictService {
      * @param dictKey 字典key
      * @return 返回字典类型对应的所有DictBean
      */
-    List<IDictBean> queryBeanListByDictKey(IDictBean baseDictBean);
+    List<IDictBean> queryBeanListByDictKey(DictBean baseDictBean);
 
     /**
      * 根据sql查询对应的DictBean集合
